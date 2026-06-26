@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Mi Fiesta de Cumpleaños! | Toy Story Demo</title>
+    <style>
+        /* Estilos incrustados para mantener la demo autocontenida y rápida de probar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial Rounded MT Bold', Arial, sans-serif;
+            /* Fondo simulando las nubes del cuarto de Andy */
+            background-color: #5ec2ff;
+            background-image: radial-gradient(white 15%, transparent 16%),
+                              radial-gradient(white 15%, transparent 16%);
+            background-size: 60px 60px;
+            background-position: 0 0, 30px 30px;
+            color: #222;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .invitation-card {
+            background: #ffffff;
+            max-width: 400px;
+            width: 100%;
+            border: 8px solid #ffcc00; /* Amarillo Toy Story */
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+            text-align: center;
+            padding: 30px 20px;
+            position: relative;
+        }
+        .badge-toy {
+            background: #e62117; /* Rojo */
+            color: white;
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 0 #b3120b;
+        }
+        h1 {
+            color: #1e3c72;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 0px #ffcc00;
+        }
+        .age {
+            font-size: 4rem;
+            color: #e62117;
+            margin: 10px 0;
+            line-height: 1;
+        }
+        .details-box {
+            background: #f0f8ff;
+            border: 2px dashed #5ec2ff;
+            border-radius: 12px;
+            padding: 15px;
+            margin: 25px 0;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        .btn-whatsapp {
+            display: block;
+            background: #25D366;
+            color: white;
+            padding: 15px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 0 #128C7E;
+            transition: transform 0.1s ease;
+        }
+        .btn-whatsapp:active {
+            transform: translateY(4px);
+            box-shadow: 0 1px 0 #128C7E;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 25px;
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="invitation-card">
+        <div class="badge-toy">¡Estás invitado!</div>
+        <h1>¡El cumpleaños de Bruno!</h1>
+        <p>Acompáñame a celebrar mis</p>
+        <div class="age">5</div>
+        <p>años en una aventura inolvidable</p>
+
+        <div class="details-box">
+            <p><strong>📅 Fecha:</strong> Sábado 11 de Julio</p>
+            <p><strong>⏰ Hora:</strong> 4:00 PM</p>
+            <p><strong>📍 Lugar:</strong> Salón de Fiestas "Los Juguetes"</p>
+        </div>
+
+        <!-- Botón interactivo con llamada directa a la API de WhatsApp de confirmación -->
+        <a href="https://wa.me/528992352516" 
+           target="_blank" 
+           class="btn-whatsapp">
+           🚀 Confirmar Asistencia
+        </a>
+
+        <a href="../../index.html" class="back-link">← Volver al catálogo</a>
+    </div>
+
+</body>
+</html>

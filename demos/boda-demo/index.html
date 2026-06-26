@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boda de Sofía & Alejandro | Demo Elegante</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #faf8f5;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .wedding-card {
+            background: #ffffff;
+            max-width: 450px;
+            width: 100%;
+            border: 1px solid #dfd5c6;
+            border-radius: 4px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+            text-align: center;
+            padding: 40px 25px;
+        }
+        .monogram {
+            font-size: 2rem;
+            color: #bfa15f;
+            margin-bottom: 15px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+        h1 {
+            font-family: 'Times New Roman', serif;
+            font-size: 2.2rem;
+            color: #2c3e50;
+            font-weight: 400;
+            margin-bottom: 5px;
+        }
+        .and {
+            font-style: italic;
+            font-size: 1.5rem;
+            color: #bfa15f;
+            margin: 5px 0;
+        }
+        h2 {
+            font-family: 'Times New Roman', serif;
+            font-size: 2.2rem;
+            color: #2c3e50;
+            font-weight: 400;
+            margin-bottom: 25px;
+        }
+        .phrase {
+            font-style: italic;
+            color: #7f8c8d;
+            font-size: 0.95rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        /* Estilos del Contador */
+        .countdown-container {
+            display: flex;
+            justify-content: space-between;
+            background: #fdfcfb;
+            border-top: 1px solid #f0eae1;
+            border-bottom: 1px solid #f0eae1;
+            padding: 20px 10px;
+            margin: 30px 0;
+        }
+        .countdown-item {
+            flex: 1;
+        }
+        .countdown-time {
+            font-size: 1.6rem;
+            color: #bfa15f;
+            font-weight: 300;
+            display: block;
+        }
+        .countdown-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: #95a5a6;
+            letter-spacing: 1px;
+            margin-top: 5px;
+            display: block;
+        }
+        /* Detalles del Evento */
+        .event-info {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 35px;
+        }
+        .btn-rsvp {
+            display: block;
+            background: #bfa15f;
+            color: white;
+            padding: 14px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-radius: 2px;
+            transition: background 0.3s;
+        }
+        .btn-rsvp:hover {
+            background: #a6894b;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            color: #95a5a6;
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wedding-card">
+        <div class="monogram">S & A</div>
+        <p class="phrase">"Nuestra aventura comienza hoy, y queremos que formes parte de nuestra historia para siempre."</p>
+        
+        <h1>Sofía</h1>
+        <div class="and">y</div>
+        <h2>Alejandro</h2>
+
+        <!-- Bloque del Reloj Regresivo -->
+        <div class="countdown-container">
+            <div class="countdown-item">
+                <span class="countdown-time" id="days">00</span>
+                <span class="countdown-label">Días</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-time" id="hours">00</span>
+                <span class="countdown-label">Horas</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-time" id="minutes">00</span>
+                <span class="countdown-label">Min</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-time" id="seconds">00</span>
+                <span class="countdown-label">Seg</span>
+            </div>
+        </div>
+
+        <div class="event-info">
+            <p><strong>💍 Ceremonia y Recepción</strong></p>
+            <p>Sábado, 17 de Octubre de 2026</p>
+            <p>Horario: 6:00 PM</p>
+            <p>📍 Hacienda San José, Reynosa</p>
+        </div>
+
+        <!-- Trampa de conversión directa a tu WhatsApp para cotizaciones rápidas -->
+        <a href="https://wa.me/528992352516" 
+           target="_blank" 
+           class="btn-rsvp">
+           Confirmar Asistencia
+        </a>
+
+        <a href="../../index.html" class="back-link">← VOLVER AL CATÁLOGO</a>
+    </div>
+
+    <!-- Lógica del Cronómetro en JavaScript -->
+    <script>
+        // Definimos la fecha del evento (Año, Mes [0-11], Día, Hora, Minutos)
+        // Nota: El mes de Octubre se representa con el número 9 porque los meses en JS inician en 0
+        const targetDate = new Date(2026, 9, 17, 18, 0, 0).getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const difference = targetDate - now;
+
+            // Cálculos matemáticos para convertir milisegundos a unidades de tiempo
+            const d = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const h = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((difference % (1000 * 60)) / 1000);
+
+            // Inyectamos los valores calculados en las etiquetas HTML correspondientes
+            // Usamos padStart(2, '0') para asegurar que siempre muestre dos dígitos (ej: "05" en vez de "5")
+            document.getElementById('days').innerText = String(d >= 0 ? d : 0).padStart(2, '0');
+            document.getElementById('hours').innerText = String(h >= 0 ? h : 0).padStart(2, '0');
+            document.getElementById('minutes').innerText = String(m >= 0 ? m : 0).padStart(2, '0');
+            document.getElementById('seconds').innerText = String(s >= 0 ? s : 0).padStart(2, '0');
+        }
+
+        // Ejecutamos la función inmediatamente al cargar y luego cada 1 segundo (1000ms)
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>

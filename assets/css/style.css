@@ -1,0 +1,198 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f6f7fb;
+    color: #222;
+    scroll-behavior: smooth;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    opacity: 0.9;
+}
+
+.btn-primary {
+    display: inline-block;
+    background: #ff6b6b;
+    color: white;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.btn-primary:hover {
+    background: #ff5252;
+    transform: translateY(-2px);
+}
+
+/* Sección de Catálogo */
+.catalog-section {
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.catalog-section h2 {
+    font-size: 2rem;
+    color: #1e3c72;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    color: #666;
+    margin-bottom: 40px;
+}
+
+/* Grid de Tarjetas (Responsivo) */
+.grid-demos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: white;
+    padding: 30px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.card-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.card p {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.btn-card {
+    background: #1e3c72;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+.btn-card:hover {
+    background: #2a5298;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 30px 20px;
+    color: #888;
+    font-size: 0.85rem;
+    margin-top: 40px;
+}
+/* Sección de Servicios Extras */
+.extras-section {
+    max-width: 900px;
+    margin: 80px auto 40px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.extras-section h2 {
+    font-size: 2rem;
+    color: #ff6b6b; /* Un tono más festivo para manualidades */
+    margin-bottom: 5px;
+}
+
+.grid-extras {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.extra-card {
+    background: #fff;
+    border: 2px dashed #ffcc00; /* Borde divertido estilo papel craft/fiesta */
+    padding: 25px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s;
+}
+
+.extra-card:hover {
+    transform: scale(1.02);
+}
+
+.extra-icon {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+}
+
+.extra-card h3 {
+    color: #222;
+    margin-bottom: 8px;
+}
+
+.extra-card p {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.btn-extra {
+    background: #ffcc00;
+    color: #222;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+.btn-extra:hover {
+    background: #e6b800;
+}
+
