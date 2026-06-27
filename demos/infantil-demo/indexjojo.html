@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JoJo's Bizarre Party | Demo Interactiva</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Impact', 'Arial Black', sans-serif;
+            background: linear-gradient(135deg, #1a0826 0%, #4c1c74 100%);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+        /* Estética del Manga/Anime */
+        .jojo-card {
+            background: rgba(17, 10, 26, 0.95);
+            max-width: 440px;
+            width: 100%;
+            border: 5px solid #ffcc00;
+            border-radius: 15px;
+            box-shadow: 0 0 30px #ff00ff;
+            text-align: center;
+            padding: 30px 20px;
+            position: relative;
+        }
+        /* Efecto de Onomatopeya Japonesa (Menacing) */
+        .menacing {
+            position: absolute;
+            font-size: 2.5rem;
+            color: #ff00ff;
+            opacity: 0.6;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+        }
+        .m1 { top: 20px; left: 20px; }
+        .m2 { bottom: 100px; right: 20px; }
+
+        /* Imagen Real de Internet */
+        .banner-img {
+            width: 100%;
+            border-radius: 8px;
+            border: 3px solid #00ffff;
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 2.2rem;
+            color: #ffcc00;
+            letter-spacing: 1px;
+            text-shadow: 3px 3px 0px #ff00ff;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+        .stand-title {
+            font-size: 1.1rem;
+            color: #00ffff;
+            font-style: italic;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+        /* Reloj Regresivo */
+        .countdown {
+            display: flex;
+            justify-content: space-around;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px dashed #ffcc00;
+            padding: 15px 5px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .time-box span {
+            display: block;
+        }
+        .num {
+            font-size: 1.8rem;
+            color: #00ffff;
+            text-shadow: 1px 1px 5px #000;
+        }
+        .label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: #ffcc00;
+        }
+        /* Sección Google Maps */
+        .map-container {
+            margin: 25px 0;
+            border: 3px solid #ffcc00;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 200px;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        /* Reproductor de Música */
+        .music-box {
+            background: #222;
+            padding: 12px;
+            border-radius: 30px;
+            margin: 20px 0;
+            border: 1px solid #00ffff;
+        }
+        /* Botón de Conversión a WhatsApp */
+        .btn-jojo {
+            display: block;
+            background: #ff00ff;
+            color: white;
+            padding: 15px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            box-shadow: 0 5px 0 #990099;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.1s;
+        }
+        .btn-jojo:active {
+            transform: translateY(4px);
+            box-shadow: 0 1px 0 #990099;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 25px;
+            color: #aaa;
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="jojo-card">
+        <div class="menacing m1">ゴゴゴ</div>
+        <div class="menacing m2">ゴゴゴ</div>
+
+        <!-- Integración de Imagen Real desde servidores estables de internet -->
+        <img src="https://imgur.com" alt="JoJos Bizarre Adventure" class="banner-img">
+
+        <h1>¡La Bizarre Party de Albert!</h1>
+        <p class="stand-title">ESTADO DEL STAND: ACTIVO 🟢</p>
+        <p>¿Acaso te vas a perder este magno arco argumental? Celebremos mis 20 años al estilo Joestar.</p>
+
+        <!-- Cronómetro Dinámico -->
+        <div class="countdown">
+            <div class="time-box">
+                <span class="num" id="j-days">00</span>
+                <span class="label">Días</span>
+            </div>
+            <div class="time-box">
+                <span class="num" id="j-hours">00</span>
+                <span class="label">Horas</span>
+            </div>
+            <div class="time-box">
+                <span class="num" id="j-min">00</span>
+                <span class="label">Min</span>
+            </div>
+            <div class="time-box">
+                <span class="num" id="j-seg">00</span>
+                <span class="label">Seg</span>
+            </div>
+        </div>
+
+        <p style="color: #ffcc00; margin-bottom: 10px;">📍 COORDENADAS DEL ENCUENTRO:</p>
+        
+        <!-- Integración Real de Google Maps mediante un Iframe Embebido -->
+        <div class="map-container">
+            <iframe src="https://google.com|2i768|4f13.1!3m3!1m2!1s0x867b4b39b0317e07%3A0xe548ec599b50b73b!2sFracc.%20Moll%20Industrial%2C%20Reynosa%2C%20Tamps.!5e0!3m2!1ses-419!2smx!4v1719430000000!5m2!1ses-419!2smx" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <!-- Reproductor de Audio Legal con el Opening 1 (Sono Chi no Sadame) -->
+        <div class="music-box">
+            <p style="font-size: 0.8rem; color: #00ffff; margin-bottom: 5px;">🎵 SOUNDTRACK DEL ARCO:</p>
+            <audio controls style="width: 100%; height: 30px;">
+                <source src="https://soundboard.com" type="audio/mpeg">
+                Tu navegador no soporta audio HTML5.
+            </audio>
+        </div>
+
+        <!-- Botón de Acción a tu WhatsApp -->
+        <a href="https://wa.me." 
+           target="_blank" 
+           class="btn-jojo">
+           YES! YES! YES! Confirmo
+        </a>
+
+        <a href="../../index.html" class="back-link">← Volver al catálogo</a>
+    </div>
+
+    <script>
+        // Fecha meta simulada (12 de Diciembre de 2026)
+        const countDate = new Date(2026, 11, 12, 20, 0, 0).getTime();
+
+        function jojoClock() {
+            const now = new Date().getTime();
+            const gap = countDate - now;
+
+            const d = Math.floor(gap / (1000 * 60 * 60 * 24));
+            const h = Math.floor((gap % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((gap % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((gap % (1000 * 60)) / 1000);
+
+            document.getElementById('j-days').innerText = String(d >= 0 ? d : 0).padStart(2, '0');
+            document.getElementById('j-hours').innerText = String(h >= 0 ? h : 0).padStart(2, '0');
+            document.getElementById('j-min').innerText = String(m >= 0 ? m : 0).padStart(2, '0');
+            document.getElementById('j-seg').innerText = String(s >= 0 ? s : 0).padStart(2, '0');
+        }
+        jojoClock();
+        setInterval(jojoClock, 1000);
+    </script>
+</body>
+</html>
